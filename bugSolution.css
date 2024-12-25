@@ -1,0 +1,13 @@
+Instead of mixing percentage and other units directly within `calc()`, it is often better to separate the calculations. For instance, if you have `width: calc(50% - 2em);`, consider calculating the `2em` value separately and storing it in a CSS variable (custom property). This provides better control and predictability. Here's an example:
+
+```css
+:root {
+  --offset: 2em;
+}
+
+.element {
+  width: calc(50% - var(--offset));
+}
+```
+
+This approach makes the calculation clearer, easier to maintain, and less prone to unexpected behavior.  Alternatively, you might be able to restructure your layout to avoid mixing units altogether, or utilize only percentage based widths.
